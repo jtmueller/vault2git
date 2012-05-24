@@ -265,10 +265,9 @@ namespace Vault2Git.Lib
                 }
                 doc.Save(filePath);
             }
-            catch
+            catch (Exception ex)
             {
-                Console.WriteLine("Failed for {0}", filePath);
-                throw;
+                Console.WriteLine("Could not remove SCC bindings for {0}.\n{1}", filePath, ex.Message);
             }
             return Environment.TickCount - ticks;
         }
